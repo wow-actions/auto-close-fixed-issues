@@ -1,0 +1,17 @@
+name: Auto Close Issues
+description: Automatically close issues fixed in pull requests that doesn't target the default branch.
+author: bubkoo <bubkoo.wy@gmail.com>
+inputs:
+  GITHUB_TOKEN:
+    description: Your GitHub token for authentication
+    required: true
+  comment:
+    description: Comment on the closing issue(s).
+    default: This issue was closed by #{{ pr }}.
+    required: false
+runs:
+  using: node12
+  main: dist/index.js
+branding:
+  icon: activity
+  color: purple # gray-dark purple red orange green blue yellow black white
