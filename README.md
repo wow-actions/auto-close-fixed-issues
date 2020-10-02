@@ -6,7 +6,7 @@ Comment keywords are documented [here](https://help.github.com/en/articles/closi
 
 ## Usage
 
-Create a file named `.github/workflows/auto-close-issues`.
+Create a file named `.github/workflows/auto-close-fixed-issues`.
 
 ```yml
 name: Auto Close Issues
@@ -19,7 +19,7 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-      - uses: bubkoo/auto-close-issues@v1
+      - uses: bubkoo/auto-close-fixed-issues@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # optional comment

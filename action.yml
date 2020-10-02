@@ -1,4 +1,4 @@
-name: Auto Close Issues
+name: Auto Close Fixed Issues
 description: Automatically close issues fixed in pull requests that doesn't target the default branch.
 author: bubkoo <bubkoo.wy@gmail.com>
 inputs:
