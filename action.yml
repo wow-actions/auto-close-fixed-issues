@@ -7,7 +7,7 @@ inputs:
     required: true
   comment:
     description: Comment on the closing issue(s).
-    default: This issue was closed by #{{ pr }}.
+    default: 'This issue was closed by #{{ pr }}'.
     required: false
 runs:
   using: node12
