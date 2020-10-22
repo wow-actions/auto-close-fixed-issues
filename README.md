@@ -23,7 +23,6 @@ name: Auto Close Issues
 on:
   pull_request:
     types: [closed]
-
 jobs:
   close:
     runs-on: ubuntu-latest
