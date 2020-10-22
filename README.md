@@ -32,7 +32,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # optional comment
-          # comment: This issue was closed by #{{ pr }}.
+          # comment: 'This issue was closed by #{{ pr }}.'
 ```
 
 ## License
