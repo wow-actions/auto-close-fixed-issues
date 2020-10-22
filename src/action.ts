@@ -44,18 +44,32 @@ export namespace Action {
         )
       }
 
-      const body = pr.body
       const issues: string[] = []
-
-      if (body) {
-        const re = /(?:(?:resolv|clos|fix)e[ds]?|fix) +#(\d+)/gi // https://regex101.com/r/5Zet3S/1
-        let match = re.exec(body)
+      const collect = (body: string) => {
+        // @see: https://regex101.com/r/5Zet3S/1
+        const regex = /(?:(?:resolv|clos|fix)e[ds]?|fix) +#(\d+)/gi
+        let match = regex.exec(body)
         while (match) {
-          issues.push(match[1])
-          core.info(`Found fixed issue: #${match[1]}.`)
-          match = re.exec(body)
+          if (!issues.includes(match[1])) {
+            issues.push(match[1])
+            core.info(`Found fixed issue: #${match[1]}.`)
+          }
+          match = regex.exec(body)
         }
       }
+
+      if (pr.body) {
+        collect(pr.body)
+      }
+
+      const { data: commits } = await octokit.pulls.listCommits({
+        ...context.repo,
+        pull_number: pr.number,
+      })
+
+      commits.forEach(({ commit }) => {
+        collect(commit.message)
+      })
 
       if (issues.length === 0) {
         core.info(`This pull request fixes no issue. Stepping out...`)
