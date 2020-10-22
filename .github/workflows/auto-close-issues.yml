@@ -8,11 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install
-        run: |
-          yarn
+        run: yarn
       - name: Build
-        run: |
-          yarn build
+        run: yarn build
       - uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
