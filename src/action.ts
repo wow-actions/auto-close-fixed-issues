@@ -7,7 +7,13 @@ export namespace Action {
     try {
       const context = github.context
 
-      if (context.eventName !== 'pull_request') {
+      core.debug(`event: ${context.eventName}`)
+      core.debug(`action: ${context.payload.action}`)
+
+      if (
+        context.eventName !== 'pull_request' &&
+        context.eventName !== 'pull_request_target'
+      ) {
         core.info(
           'This action is supposed to run for pushes to pull requests only. Stepping out...',
         )
