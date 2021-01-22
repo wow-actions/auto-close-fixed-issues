@@ -48,6 +48,11 @@ export namespace Action {
         core.info(
           `Base branch (${repoResponse.data.default_branch}) is the default branch of this repository. GitHub will already do what we want.`,
         )
+
+        const ignore = core.getInput('ignore') !== 'false'
+        if (ignore) {
+          return
+        }
       }
 
       const issues: string[] = []

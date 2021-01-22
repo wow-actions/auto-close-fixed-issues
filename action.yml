@@ -9,6 +9,10 @@ inputs:
     description: Comment on the closing issue(s).
     default: 'This issue was closed by #{{ pr }}.'
     required: false
+  ignore:
+    description: Ignore when PR is merge to the default branch and Github will auto close the related issue.
+    default: true
+    required: false
 runs:
   using: node12
   main: dist/index.js

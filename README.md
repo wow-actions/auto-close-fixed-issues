@@ -32,6 +32,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # optional comment
           # comment: 'This issue was closed by #{{ pr }}.'
+          # default ignore the pr merge to the default branch
+          # ignore: true
 ```
 
 ## License
