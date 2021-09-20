@@ -1,6 +1,6 @@
 # Auto Close Issues
 
-A Github Action to automatically close issues fixed in pull requests that doesn't target the default branch.
+Automatically close issues fixed in pull requests that doesn't target the default branch.
 
 Comment keywords are documented [here](https://help.github.com/en/articles/closing-issues-using-keywords):
 
@@ -27,7 +27,7 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-      - uses: bubkoo/auto-close-fixed-issues@v1
+      - uses: wow-actions/auto-close-fixed-issues@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # optional comment
