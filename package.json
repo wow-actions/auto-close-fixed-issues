@@ -1,6 +1,6 @@
 {
   "name": "auto-close-fixed-issues",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Automatically close issues fixed in pull requests that doesn't target the default branch",
   "main": "dist/index.js",
   "files": [
